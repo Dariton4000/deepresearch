@@ -8,11 +8,9 @@ A research assistant tool that uses language models to help with research querie
 
 DeepResearch helps automate research tasks by using AI to process and analyze information. It can crawl websites, search the internet, and answer research questions using language models.
 
-## Features
+## Features (how it will work in the future, still WIP)
 
-- Web crawling for information gathering
-- Search capabilities
-- AI-powered research assistant
+![image](https://github.com/user-attachments/assets/767bcf30-b6ad-455d-8be1-4139d122797e)
 
 ## Installation
 
@@ -45,7 +43,3 @@ python main.py
 ## Configuration
 
 The system currently uses LMStudio as the AI provider. You can configure this in the `env.py` file. (Well not currently)
-
-## License
-
-MIT
