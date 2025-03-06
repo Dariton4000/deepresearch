@@ -1,5 +1,5 @@
 from env import provider
-from lm_studio import lm_studio, lm_studio_tools
+from providers.lm_studio import lm_studio, lm_studio_summarize
 
 def lm(prompt):
     if provider == "lmstudio":
@@ -9,10 +9,9 @@ def lm(prompt):
         return None
     
 
-def lmtools(prompt):
+def lmsummarize(prompt):
     if provider == "lmstudio":
-        return lm_studio_tools(prompt)
+        return lm_studio_summarize(prompt)
     else:
         print("No provider selected")
         return None
-    
