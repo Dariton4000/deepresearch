@@ -1,12 +1,12 @@
 import asyncio
 from crawler import crawl
-from router import lm, lmtools
+from router import lm, lm_structured
 
 
 
 def main():
-    request = input("What would you like to research? \nType it in here: ")
-    result = lmtools("You are a research assistant. Do not Halucinate any information. Please help me with this query: " + request)
+    request = input("Please enter the Topik that should be researched? \n")
+    result = lm_structured(request)
     print(result)
     
 
