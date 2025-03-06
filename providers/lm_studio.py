@@ -33,6 +33,6 @@ schema = {
 def lm_studio_structured(prompt):
     model = lms.llm()
     today = time.strftime("%B %d, %Y")
-    result = model.respond("Give me 4 google queries based on the following research theme: " + prompt + " Keep in mind, today is the " + today + " and these should be queries for Google or Bing, so you should use clear and specific keywords. Do not hallucinate or make up any information, be sure to ask important information about " + prompt, response_format=schema)
+    result = model.respond("Give me 4 google queries based on the following research theme: " + prompt + " Keep in mind, today is the " + today + " and these should be queries for Google or Bing, so you should use clear and specific keywords. The information should be enough to generate a report with it. Do not hallucinate or make up any information; be sure to ask important information about " + prompt, response_format=schema)
     response = result.parsed
     return response
