@@ -27,12 +27,39 @@ DeepResearch helps automate research tasks by using AI to process and analyze in
    cd deepresearch
    ```
 
-2. Install required dependencies:
+2. Create an python environment:
    ```bash
-   pip install lmstudio crawl4ai
+   python3 -m venv env
+   ```
+   
+3. Activate the environment (Windows):
+   ```bash
+   .\env\Scripts\activate
+   ``` 
+ 
+3. Activate the environment(Linux):
+   ```bash
+   source env/bin/activate
+   ``` 
+
+4. Install dependencies in the environment:
+   ```bash
+   pip install -r requirements.txt
    ```
 
 ## Usage
+
+If not allready activated, actevate your environment.
+
+Activate the environment (Windows):
+   ```bash
+   .\env\Scripts\activate
+   ``` 
+ 
+Activate the environment (Linux):
+   ```bash
+   source env/bin/activate
+   ``` 
 
 Run the main script and input your research query when prompted:
 
