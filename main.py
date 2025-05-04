@@ -10,7 +10,7 @@ import os
 def main():
     request = input("Please enter the Topik that should be researched? \n")
     queries = lm_structured(request)
-    filterprompt = "RESPOND ONLY WITH URLS. Extract all relevant URLs from the following data related to: " + request + ". Return ONLY the URLs with each URL on a separate line. No numbering, no brackets, no explanations, no introductions, no formatting. ONLY return plain URLs that can be processed by a web crawler. The data: "
+    filterprompt = "RESPOND ONLY WITH URLS. Extract all relevant URLs from the following data related to: " + request + ". Return ONLY the URLs with each URL on a separate line. No numbering, no brackets, no explanations, no introductions, no formatting. ONLY return plain URLs that can be processed by a web crawler. No links by Googel or any other Search engine. None of the liks should include anything including googel exept it has to do with the topic. The data: "
     
     # Set to store all collected links (using a set for efficient duplicate filtering)
     all_links_set = set()
@@ -62,7 +62,8 @@ def main():
     # Crawl all collected links
     print("\n\n=== CRAWLING ALL LINKS ===")
     crawl_results = []
-    for link in all_links:
+    total_links = len(all_links)
+    for index, link in enumerate(all_links):
         try:
             print(f"\nCrawling: {link}")
             content = asyncio.run(crawl(link))
@@ -91,6 +92,10 @@ def main():
                 })
         except Exception as e:
             print(f"Error crawling {link}: {str(e)}")
+        
+        # Progress indicator
+        progress = (index + 1) / total_links * 100
+        print(f"Progress: {progress:.2f}%")
     
     # Create a directory for storing research results if it doesn't exist
     results_dir = os.path.join(os.getcwd(), "research_results")
@@ -115,6 +120,12 @@ def main():
                 f.write(f"SUMMARY: {result['summary']}\n\n")
                 f.write("-" * 80 + "\n\n")
         print(f"\nCrawl results saved to {result_filepath.replace('.json', '.txt')} (fallback text format)")
+    
+    # Summary of research results
+    print("\n\n=== RESEARCH SUMMARY ===")
+    for result in crawl_results:
+        print(f"URL: {result['url']}")
+        print(f"SUMMARY: {result['summary']}\n")
 
 
 if __name__ == "__main__":

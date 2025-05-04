@@ -8,9 +8,12 @@ A research assistant tool that uses language models to help with research querie
 
 DeepResearch helps automate research tasks by using AI to process and analyze information. It can crawl websites, search the internet, and answer research questions using language models.
 
-## Features (how it will work in the future, still WIP)
+## Features
 
-![image](https://github.com/user-attachments/assets/767bcf30-b6ad-455d-8be1-4139d122797e)
+- Crawl websites and extract relevant information
+- Search the internet for research queries
+- Summarize content using language models
+- Save research results to a file
 
 ## Installation
 
@@ -49,7 +52,7 @@ DeepResearch helps automate research tasks by using AI to process and analyze in
 
 ## Usage
 
-If not allready activated, actevate your environment.
+If not already activated, activate your environment.
 
 Activate the environment (Windows):
    ```bash
